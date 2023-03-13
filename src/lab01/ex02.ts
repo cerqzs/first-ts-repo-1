@@ -1,4 +1,4 @@
-function calcularPrecoRamo (rosas: number, tulipas:number, pRosa: number, pTulipa: number): number {
+export function calcularPrecoRamo (rosas: number, tulipas:number, pRosa: number, pTulipa: number): number {
     let ramo: number; 
     ramo = rosas * pRosa + tulipas* pTulipa; 
     return ramo

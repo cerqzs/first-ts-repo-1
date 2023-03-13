@@ -1,4 +1,4 @@
-function calcularLitros (pi:number, raio: number, altura: number, conversao:number): number {
+export function calcularLitros (pi:number, raio: number, altura: number, conversao:number): number {
     let totalLitros: number; 
     totalLitros = pi * raio **2 * altura;
     totalLitros = totalLitros * conversao
