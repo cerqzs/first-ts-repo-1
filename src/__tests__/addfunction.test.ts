@@ -1,4 +1,4 @@
-import {add} from '../addfunction';
+import {add} from './addfunction';
 
 describe('testing add-function file', () => {
     test('empty string should result in zero', () => {
