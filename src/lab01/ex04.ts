@@ -1,4 +1,4 @@
-function calcularPerimetroRetangulo (area:number , base:number) : number {
+export function calcularPerimetroRetangulo (area:number , base:number) : number {
     let perimetro: number; 
     perimetro = 2 * area + 2 * base;
     return perimetro

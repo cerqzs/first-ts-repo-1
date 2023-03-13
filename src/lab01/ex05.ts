@@ -1,5 +1,5 @@
 
-function calcularHipotenusa (cateto1: number, cateto2: number) : number {
+export function calcularHipotenusa (cateto1: number, cateto2: number) : number {
     let hipotenusa: number;
     hipotenusa = cateto1 **2 + cateto2 **2
     return hipotenusa
