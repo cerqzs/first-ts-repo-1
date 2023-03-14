@@ -97,3 +97,28 @@ export function saudacaoDoDia (segundos: number): string {
     }
   }
   
+  export function tempoDoDia (segundos:number): string {
+    const horas:number = Math.floor(segundos / 3600);
+    const minutos:number = Math.floor(( segundos %3600) /60);
+    const sec:number = segundos % 60;
+
+    return `${horas.toString().padStart(2,'0')}:${minutos.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+  }
+
+  export function multiplosCheck (x:number , y:number) : boolean {
+    return x % y === 0 || y % x ===0;
+  }
+
+  export function imprimeMensagemMultiplos (x:number, y:number ): string {
+    if( x % y === 0) {
+    return `${x} é multiplo de ${y}`;
+    } else if (y % x ===0) {
+    return `${y} é multiplo de ${x}`;
+    } else {
+        return `${x} não é multiplo nem divisor de ${y}`;
+    } 
+    }
+    
+
+
+  
