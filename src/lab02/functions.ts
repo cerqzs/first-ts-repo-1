@@ -119,6 +119,72 @@ export function saudacaoDoDia (segundos: number): string {
     } 
     }
     
+export function numeroDeTresDigitos (numero:number): string {
+    if (numero <100 || numero > 999) {
+        throw new Error("O numero deve ter 3 digitos");     
+    }
+    const centenas:number = Math.floor(numero /100);
+    const dezenas:number = Math.floor(numero/10) %10;
+    const unidades:number = numero %10; 
 
+        if(unidades > dezenas && dezenas > centenas) {
+        return "A sequencia é crescente.";
+    } else {
+        return "A sequencia não é crescente.";
+    }
+}
 
-  
+export function artigoSaldo (preco:number) : number {
+    if (preco > 200) {
+    return preco= preco *0.6; 
+} else if (100 <preco &&  preco<=200) {
+    return preco = preco *0.4;
+} else if (50 < preco && preco <=100) {
+return preco=preco*0.3; 
+}else { 
+    return preco= preco*0.2;
+}
+}
+
+export function notasTurma (aprovados:number, limiteMin:number, limiteMax:number): string {
+    if( aprovados <limiteMin || aprovados >limiteMax ) {
+        return "Valor invalido";
+    } else if(aprovados < 0.2) {
+        return "Turma má";
+    } else if(aprovados <0.5) {
+        return "Turma fraca";
+    } else if(aprovados<0.7) {
+        return "Turma razoavel";
+    } else if(aprovados <0.9) {
+        return "Turma Boa";
+    } else {
+        return "Turma Excelente";
+    }
+    }
+
+    export function indicePoluicao (poluicao:number): string {
+        if(poluicao > 0.3 && poluicao <=0.4) {
+            return "As industrias do 1º grupo devem suspender as suas atividades"
+        } else if(poluicao> 0.4 && poluicao <=0.5) {
+            return "As industrias do 1º e 2º devem suspender as suas atividades"
+        } else if(poluicao > 0.5) {
+            return "As industrias dos 3 grupos devem suspender as suas atividades"
+        } else {
+            return "O indice de poluição é aceitavel"
+        }
+    }
+
+    export function calculoGastos (grama:number, arvores:number, arbustos: number): number {
+        grama= grama *10;
+        arvores= arvores *20;
+        arbustos= arbustos *15;
+
+        let tempoGrama = grama*300;
+        let tempoArvores= arvores *600;
+        let tempoArbustos = arbustos*400;
+        
+        let tempoTotal = (tempoArbustos + tempoArvores +tempoArbustos) / 3600;
+        let custoTotal = grama + arvores + arbustos;
+        return tempoTotal;
+        return custoTotal;
+    }
