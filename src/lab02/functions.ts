@@ -239,7 +239,6 @@ export function pintoresPorArea(area: number, salarioPintor: number): number {
 }
 
 
-
 export function tintaArea(area: number, custoLitroTinta: number, rendimentoTinta: number): number {
     let custoTotalTinta: number;
 
@@ -249,7 +248,19 @@ export function tintaArea(area: number, custoLitroTinta: number, rendimentoTinta
 
 }
 
+export function comboiosCp (horaPartida:number, minutosPartida:number, horasDuracao:number, minutosDuracao:number) :string {
 
+  const HoraChegadaMin = horaPartida *60 + minutosPartida;
+  const duracaoMin = horasDuracao*60 + minutosDuracao;
+  const chegadaEmMin = minutosPartida + duracaoMin;
 
+let horaChegada = Math.floor(HoraChegadaMin /60) %24; // converte a hora de chegada de volta para o formato de hora e minuto
+let minChegada = chegadaEmMin %60;
 
+if(horaChegada < horaPartida || horaChegada === horaPartida && minChegada < minutosPartida) {
+    return "o comboio chega no dia seguinte as" horaChegada.toString().padStart(2, '0'), "e"minChegada.toString().padStart(2, '0'); 
+} else {
+    return "o comboio chega as" +horaChegada.toString().padStart(2, '0'), "e",minChegada.toString().padStart(2, '0');
+}
 
+}
