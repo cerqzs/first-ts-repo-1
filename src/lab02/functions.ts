@@ -233,7 +233,7 @@ export function pintoresPorArea(area: number, salarioPintor: number): number {
         pintores = 4;
     }
 
-    custoPintor = ((area / rendimentoPintor /horasPintor) * salarioPintor) * pintores;
+    custoPintor = ((area / rendimentoPintor / horasPintor) * salarioPintor) * pintores;
 
     return custoPintor;
 }
@@ -248,19 +248,51 @@ export function tintaArea(area: number, custoLitroTinta: number, rendimentoTinta
 
 }
 
-export function comboiosCp (horaPartida:number, minutosPartida:number, horasDuracao:number, minutosDuracao:number) :string {
+export function comboiosCp(horaPartida: number, minutosPartida: number, horasDuracao: number, minutosDuracao: number): string {
 
-  const HoraChegadaMin = horaPartida *60 + minutosPartida;
-  const duracaoMin = horasDuracao*60 + minutosDuracao;
-  const chegadaEmMin = minutosPartida + duracaoMin;
+    const HoraChegadaMin = horaPartida * 60 + minutosPartida;
+    const duracaoMin = horasDuracao * 60 + minutosDuracao;
+    const chegadaEmMin = HoraChegadaMin + duracaoMin;
 
-let horaChegada = Math.floor(HoraChegadaMin /60) %24; // converte a hora de chegada de volta para o formato de hora e minuto
-let minChegada = chegadaEmMin %60;
+    let horaChegada = Math.floor(chegadaEmMin / 60) % 24; // converte a hora de chegada de volta para o formato de hora e minuto
+    let minChegada = chegadaEmMin % 60;
 
-if(horaChegada < horaPartida || horaChegada === horaPartida && minChegada < minutosPartida) {
-    return "o comboio chega no dia seguinte as" horaChegada.toString().padStart(2, '0'), "e"minChegada.toString().padStart(2, '0'); 
-} else {
-    return "o comboio chega as" +horaChegada.toString().padStart(2, '0'), "e",minChegada.toString().padStart(2, '0');
+    if (horaChegada < horaPartida || horaChegada === horaPartida && minChegada < minutosPartida) {
+        return `O comboio chega no dia seguinte às ${horaChegada.toString().padStart(2, '0')}:${minChegada.toString().padStart(2, '0')}`;
+    } else {
+        return `O comboio chega às ${horaChegada.toString().padStart(2, '0')}:${minChegada.toString().padStart(2, '0')}`;
+    }
+
 }
 
+export function horaProcessamento(horasProcess: number, minutosProcess: number, segundosProcess: number, duracaoSegundosProcess: number): String {
+
+    const horasProcessSegundos = horasProcess * 3600;
+    const minutosProcessSegundos = minutosProcess * 60;
+
+    let TempoTotalProcessSegundos = horasProcessSegundos + minutosProcessSegundos + segundosProcess + duracaoSegundosProcess;
+    let TempoTotalProcessFormatoHoras = Math.floor(TempoTotalProcessSegundos / 3600) % 24;
+    let tempoTotalProcessFormatoMin = Math.floor((TempoTotalProcessSegundos % 3600) / 60);
+    let tempoTotalProcessFormatoSegundos = TempoTotalProcessSegundos % 60;
+
+    return `O tempo final do processamento será às ${TempoTotalProcessFormatoHoras.toString().padStart(2, '0')}:${tempoTotalProcessFormatoMin.toString().padStart(2, '0')}:${tempoTotalProcessFormatoSegundos.toString().padStart(2, '0')}`;
+}
+
+export function salarioSemanal(horasDetrabalhoSemanais: number): number {
+
+    const valorHora: number = 7.5;
+    const horaSemanais: number = 36;
+    const valorHoraExtra1: number = 10;
+    const valorHoraExtra2: number = 15;
+    const horasExtras: number = horasDetrabalhoSemanais - horaSemanais;
+    let salarioSemanal: number = 0;
+
+    if (horasDetrabalhoSemanais <= horaSemanais) {
+        salarioSemanal = valorHora * horaSemanais;
+    } else if (horasExtras <= 5) {
+        salarioSemanal = horaSemanais * valorHora + horasExtras * valorHoraExtra1;
+    } else {
+        salarioSemanal = horaSemanais * valorHora + 5  * valorHoraExtra1 + (horasExtras -5) * valorHoraExtra2;
+    }
+    return salarioSemanal
 }
