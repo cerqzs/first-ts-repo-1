@@ -8,7 +8,7 @@ altura &lt;- 0*tempo + (9,8*2^2)/2
 ESCREVER (“A altura do prédio é de “altura “metros”)
 FIM */ 
 
-function calcularAlturaPredio (tempo:number) :number {
+export function calcularAlturaPredio (tempo:number) :number {
     let alturaEdificio: number;
     alturaEdificio = 0 * tempo + (9.8 *2**2)/2;
     return alturaEdificio

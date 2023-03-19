@@ -8,7 +8,7 @@ ESCREVER (“ o valor da expressão é “ resultado”)
 FIM 
 */ 
 
-function calcularX (valorX: number) :number {
+export function calcularX (valorX: number) :number {
     let result: number;
     result = valorX **2 - 3* valorX +1
     return result

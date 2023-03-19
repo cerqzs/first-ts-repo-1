@@ -12,9 +12,9 @@ alturaE &lt;- sombraE / sombraP * alturaP
 
 ESCREVER */ 
 
-function calcularAlturaEdificio ( sombraEdifico:number, alturaPessoa:number , sombraPessoa:number ) :number {
+export function calcularAlturaEdificio ( sombraEdifico:number, alturaPessoa:number , sombraPessoa:number ) :number {
     let alturaEdi: number; 
-    alturaEdi = sombraEdifico / sombraPessoa * alturaPessoa;
+    alturaEdi = Math.round(sombraEdifico / sombraPessoa * alturaPessoa);
     return alturaEdi 
 }
 
