@@ -14,11 +14,11 @@ distanciaze &lt;- velocidadeM * intervaloTempoZe / 1000
 ESCREVER (“ O zé Percorreu, “ distanciaze “ Km até desistir”)
 FIM */ 
 
-function calcularDistanciaZe ( distanciaM:number , intervaloTempoM:number , intervaloTempoZ:number ) : number {
+export function calcularDistanciaZe ( distanciaM:number , intervaloTempoM:number , intervaloTempoZ:number ) : number {
     let velocidadeM :number ;
     let distanciaZe: number; 
-    velocidadeM =  distanciaM / intervaloTempoM ,Math.floor(2); 
-    distanciaZe = velocidadeM * intervaloTempoZ /1000;
+    velocidadeM =  Math.round(distanciaM / intervaloTempoM); 
+    distanciaZe = Math.round(velocidadeM * intervaloTempoZ /1000);
     return distanciaZe
 }
 

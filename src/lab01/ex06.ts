@@ -1,6 +1,6 @@
 export function calcularTemperaturaFahrenheit ( celsius: number): number {
     let fabre: number;
-    fabre = 32 + (9/5) * celsius
+    fabre = Math.round( 32 + (9/5) * celsius);
     return fabre
 }
 

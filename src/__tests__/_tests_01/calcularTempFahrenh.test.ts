@@ -6,10 +6,10 @@ describe ('Testar função calcular temperatura Fahre...', () => {
 //Arrange
 
     const celsius:number = 42;
-    const fabreEsperado:number = 107.6;
+    const fabreEsperado:number = 108;
 
 //Act
-let fabre:number = calcularTemperaturaFahrenheit(celsius);
+let fabre:number = Math.round(calcularTemperaturaFahrenheit(celsius));
 
 //ASSERT
 

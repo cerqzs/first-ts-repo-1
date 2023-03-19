@@ -7,7 +7,7 @@ distancia &lt;- intervalotempo * 340
 ESCREVER (“a trovoada está a”, distancia “metros”)
 FIM */ 
 
-function calcularIntervaloTempo (intervaloT:number) : number {
+export function calcularIntervaloTempo (intervaloT:number) : number {
     let distancia: number;
     distancia = intervaloT * 340 ; 
     return distancia

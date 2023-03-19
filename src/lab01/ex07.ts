@@ -5,7 +5,7 @@
 	ESCREVER ( “ Passaram “, MT “ minutos”)
 */ 
 
-function calcularMinutos (horas: number, minutos: number): number {
+export function calcularMinutos (horas: number, minutos: number): number {
     let totalMinutos: number; 
     totalMinutos = horas *60 + minutos; 
     return totalMinutos
