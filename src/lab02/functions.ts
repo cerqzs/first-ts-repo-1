@@ -23,7 +23,7 @@ export function analisarValor(nota1: number): boolean {
 
 export function distanciaEntrePontos(x1: number, x2: number, y1: number, y2: number): number {
     let distancia: number;
-    distancia = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+    distancia = Math.round( Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2));
     return distancia;
 }
 
@@ -31,7 +31,7 @@ export function operadoresDivisao(numero: number): number {
     let digito1: number, digito2: number, digito3: number;
 
     if (numero < 100 || numero > 999) {
-        console.log("Número não tem 3 dígitos");
+        throw new RangeError ("Número não tem 3 dígitos");
         digito1 = -1;
     } else {
         digito3 = numero % 10;

@@ -7,9 +7,9 @@ distancia &lt;- sqrt (cabo2^2 + cabo1^2 – 2* cabo1 * cabo2 * 0,5)
 ESCREVER (“ A distancia entre os dois operários é de “ distancia “ metros” )
 FIM */ 
 
-function calcularDistanciaOperarios ( cabo1: number, cabo2:number, angulo1:number): number {
+export function calcularDistanciaOperarios ( cabo1: number, cabo2:number, angulo1:number): number {
     let dist: number; 
-    dist= Math.sqrt (cabo2**2 + cabo1**2 - 2* cabo1 * cabo2 * angulo1); 
+    dist= Math.round(Math.sqrt (cabo2**2 + cabo1**2 - 2* cabo1 * cabo2 * angulo1)); 
     return dist 
 } 
 
